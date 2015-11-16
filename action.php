@@ -10,7 +10,7 @@ function clean_input($data) {
 $query_params_unfiltered = array(
 	"username" 			=> "username",
 	"password"			=> "password",
-	"from"				=> "Salescorp",
+	"from"				=> "CompanyName",
 	"to"				=> clean_input($_POST['mobile']),
 	"message"			=> "This is a test message!"
 //	"fname" 			=> ucwords(strtolower(clean_input($_POST['fname']))),
