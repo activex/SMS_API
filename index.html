@@ -16,19 +16,20 @@
 				method: 'POST',
 				success: function(result) {
 					// Split response into code and message
-				  	var result = result.split(": ");
+				  	var response = result;
+					var result = result.split(": ");
 				  	var code = result[0];
 				  	var message = result[1];
 
-				  	if(code.indexOf("2000") === 0) {
-						// Success
-						$("#response").html('<div class = "alert alert-success">' + message + '</div>');
+				  	if(code == "ERROR") {
+						// Error
+						$("#response").html('<div class = "alert alert-danger">' + response + '</div>');
 
+					} else {
+						// Success
+						$("#response").html('<div class = "alert alert-success">' + response + '</div>');
 						// Clear form
 						$("#form")[0].reset();
-					} else {
-						// Error
-						$("#response").html('<div class = "alert alert-danger">' + message + '</div>');
 					}
 				}
 			});
