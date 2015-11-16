@@ -1,0 +1,91 @@
+<script src="js/jquery-2.1.4.min.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#form").submit(function(e) {
+			e.preventDefault();
+
+			$("html, body").animate({ scrollTop: 0 }, "slow");
+			$("#response").html('<img src = "ajax-loader.gif" /><br /><br />');
+
+			$.ajax({
+				url: "action.php",
+				data: $(this).serialize(),
+				method: 'POST',
+				success: function(result) {
+					// Split response into code and message
+				  	var result = result.split(": ");
+				  	var code = result[0];
+				  	var message = result[1];
+
+				  	if(code.indexOf("2000") === 0) {
+						// Success
+						$("#response").html('<div class = "alert alert-success">' + message + '</div>');
+
+						// Clear form
+						$("#form")[0].reset();
+					} else {
+						// Error
+						$("#response").html('<div class = "alert alert-danger">' + message + '</div>');
+					}
+				}
+			});
+		});
+	});  
+</script>
+
+<html>
+	<body>
+		<div class = "container" style = "padding-top: 20px;">
+			<form class="form-horizontal" id = "form">
+				<fieldset>
+					<!-- Form Name -->
+					<legend><h2>SMS API</h2></legend>
+
+					<!-- Server response -->
+					<div class = "row text-center">
+						<div class = "col-md-6 col-md-offset-3" id = "response"></div>
+					</div>
+
+					<!-- Text input
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="fname">First Name</label>  
+						<div class="col-md-5">
+							<input id="fname" name="fname" type="text" placeholder="" class="form-control input-md" required="">
+
+						</div>
+					</div>
+
+					<!-- Text input
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="lname">Last Name</label>  
+						<div class="col-md-5">
+							<input id="lname" name="lname" type="text" placeholder="" class="form-control input-md" required="">
+
+						</div>
+					</div>
+
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="mobile">Mobile</label>  
+						<div class="col-md-5">
+							<input id="mobile" name="mobile" type="text" placeholder="" class="form-control input-md" required="">
+						</div>
+					</div>
+
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="submit"></label>
+						<div class="col-md-5">
+							<button id="submit" name="submit" class="btn btn-primary pull-right">Submit</button>
+						</div>
+					</div>
+
+				</fieldset>
+			</form>
+		</div>
+	</body>
+</html>
