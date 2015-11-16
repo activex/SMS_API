@@ -13,9 +13,6 @@ $query_params_unfiltered = array(
 	"from"				=> "CompanyName",
 	"to"				=> clean_input($_POST['mobile']),
 	"message"			=> "This is a test message!"
-//	"fname" 			=> ucwords(strtolower(clean_input($_POST['fname']))),
-//	"lname" 			=> ucwords(strtolower(clean_input($_POST['lname']))),
-//	"mobile" 			=> clean_input($_POST['mobile']),
 );
 
 // Filter out empty results
