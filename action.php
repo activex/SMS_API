@@ -9,14 +9,13 @@ function clean_input($data) {
 
 $query_params_unfiltered = array(
 	"username" 			=> "username",
-	"password"			=> "password"
-	"from"				=> "TestSMS"
-	"to"				=> "0400000001"
+	"password"			=> "password",
+	"from"				=> "TestSMS",
+	"to"				=> "0400000001",
 	"message"			=> "This is a test message"
 //	"fname" 			=> ucwords(strtolower(clean_input($_POST['fname']))),
 //	"lname" 			=> ucwords(strtolower(clean_input($_POST['lname']))),
 //	"mobile" 			=> clean_input($_POST['mobile']),
-
 );
 
 // Filter out empty results
