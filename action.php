@@ -10,7 +10,7 @@ $message_life = "Life Message Here";
 $message_fun = "Funeral Message Here";
 $message_inc = "Income Message Here";
 
-$query_product = $_POST['product'];
+$query_product = $_POST["product"];
 
 if ($query_product = "INC"){
 	$message = $message_inc;
@@ -35,7 +35,8 @@ $query = http_build_query($query_params);
 
 $api_URL = "http://api.smsbroadcast.com.au/api.php?$query";
 
-// echo $api_URL;
+echo $api_URL;
+
 $ch = curl_init($api_URL);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
