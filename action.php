@@ -6,13 +6,27 @@ function clean_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
+$message_life = "Life Message Here";
+$message_fun = "Funeral Message Here";
+$message_inc = "Income Message Here";
+&message = "";
+
+&query_product = $_POST['product'];
+
+if ($query_product = "Income"){
+	$message = $message_inc;
+} elseif ($query_product = "Life"){
+	$message = $message_life;
+} else {
+	$message = $message_fun;
+}
 
 $query_params_unfiltered = array(
 	"username" 			=> "username",
 	"password"			=> "password",
 	"from"				=> "CompanyName",
 	"to"				=> clean_input($_POST['mobile']),
-	"message"			=> "This is a test message!"
+	"message"			=> $message
 );
 
 // Filter out empty results
