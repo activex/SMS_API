@@ -10,11 +10,11 @@ $message_life = "Life Message Here";
 $message_fun = "Funeral Message Here";
 $message_inc = "Income Message Here";
 
-&query_product = $_POST['product'];
+$query_product = $_POST['product'];
 
-if ($query_product = "Income"){
+if ($query_product = "INC"){
 	$message = $message_inc;
-} elseif ($query_product = "Life"){
+} elseif ($query_product = "LIFE"){
 	$message = $message_life;
 } else {
 	$message = $message_fun;
