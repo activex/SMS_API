@@ -9,7 +9,6 @@ function clean_input($data) {
 $message_life = "Life Message Here";
 $message_fun = "Funeral Message Here";
 $message_inc = "Income Message Here";
-&message = "";
 
 &query_product = $_POST['product'];
 
